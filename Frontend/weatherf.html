@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="weatherf.css"> -->
+    <style>
+        body {
+            height: 97vh;
+            width: 98vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            height: 60%;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius: 14px;
+        }
+
+        i {
+            font-size: 8rem;
+        }
+
+        .box1 {
+            background: rgb(169, 231, 255);
+            width: 100%;
+            height: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+        }
+
+        .box2 {
+            height: 60%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .cmn {
+            border-radius: 14px;
+        }
+
+        .min {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0px;
+        }
+
+        h4 {
+            margin: 6px;
+        }
+    </style>
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box1 cmn" id="box1">
+            <!-- <i class="fas fa-sun" style="color:orange"></i> -->
+            <i class="fas fa-cloud" style="color: white;" id="cloud"></i>
+        </div>
+        <div class="box2 cmn">
+            <div class="min">
+                <h1>{%weather%}</h1>
+            </div>
+            <div class="min">
+                <h4 id="date">Date</h4>
+                <h4 id="temp">{%tempVal%}</h4>
+                <h4 id="loc">{%location%},{%country%}</h4>
+                <h4 id="minMaxTemp">Min {%nTemp%} | Max {%xTemp%}</h4>
+            </div>
+        </div>
+    </div>
+    <script>
+        var todaysDate = document.getElementById('date');
+        var date = new Date();
+        var totDays = ["Sun", "Mon", "Tue", "Wed", "The", "Fri", "Sat"];
+        todaysDate.innerText = `${totDays[date.getDay()]} | ${date.toLocaleDateString()}`;
+        var box1=document.getElementById('box1');
+        var cloud=document.getElementById("cloud")
+        box1.innerHTML=`<i class="fas fa-sun" style="color:orange"></i>`;
+        box1.removeChild(cloud);
+    </script>
+</body>
+
+</html>
